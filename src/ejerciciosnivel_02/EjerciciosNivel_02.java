@@ -44,11 +44,10 @@ public class EjerciciosNivel_02 {
             if(cadena1.charAt(i)=='-' || cadena2.charAt(i)=='-'){
                 contador++;
                 contador++;
-            }
-            if((cadena1.charAt(i) == 'A' && cadena2.charAt(i) != 'T' && cadena2.charAt(i) != '-') ||
-                    (cadena1.charAt(i) == 'C' && cadena2.charAt(i) != 'G' && cadena2.charAt(i) != '-') ||
-                    (cadena1.charAt(i) != 'A' && cadena1.charAt(i) != '-' && cadena2.charAt(i) == 'T') ||
-                    (cadena1.charAt(i) != 'C' && cadena1.charAt(i) != '-' && cadena2.charAt(i) == 'G')){
+            }else if((cadena1.charAt(i) == 'A' && cadena2.charAt(i) != 'T') ||
+                    (cadena1.charAt(i) == 'C' && cadena2.charAt(i) != 'G') ||
+                    (cadena1.charAt(i) != 'A' && cadena2.charAt(i) == 'T') ||
+                    (cadena1.charAt(i) != 'C' && cadena2.charAt(i) == 'G')){
                 contador++;  
             }
         }
