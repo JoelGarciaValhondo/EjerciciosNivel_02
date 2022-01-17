@@ -41,7 +41,7 @@ public class EjerciciosNivel_02 {
     private int costeErroresADN (String cadena1, String cadena2){
         int contador = 0;
         for(int i=0; i < cadena1.length(); i++){
-            if(cadena1.charAt(i)=='-' && cadena2.charAt(i)!= '-' || cadena2.charAt(i)=='-' && cadena1.charAt(i)!= '-'){
+            if(cadena1.charAt(i)=='-' || cadena2.charAt(i)=='-'){
                 contador++;
                 contador++;
             }
