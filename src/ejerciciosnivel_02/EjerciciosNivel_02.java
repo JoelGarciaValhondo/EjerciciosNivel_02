@@ -10,6 +10,12 @@ package ejerciciosnivel_02;
  */
 public class EjerciciosNivel_02 {
 
+    /**
+     * PRIMER EJERCICIO LISTAPALABRAS
+     * @param listaPalabras, lista de palabras para ver si es una escalera de palabras.
+     * @return 
+     */
+    
     public boolean esEscaleraDePalabras(char[][] listaPalabras){
         for(int i=0; i < listaPalabras.length-1; i++){
             int contador = 0;
@@ -25,6 +31,30 @@ public class EjerciciosNivel_02 {
         return true;
     }
     
+    /**
+     * SEGUNDO EJERCICIO costeErroresADN
+     * @param cadena1 primera cadena a comparar.
+     * @param cadena2 segunda cadena a comparar.
+     * @return 
+     */
+    
+    private int costeErroresADN (String cadena1, String cadena2){
+        int contador = 0;
+        for(int i=0; i < cadena1.length(); i++){
+            if(cadena1.charAt(i)=='-' && cadena2.charAt(i)!= '-' || cadena2.charAt(i)=='-' && cadena1.charAt(i)!= '-'){
+                contador++;
+                contador++;
+            }
+            if((cadena1.charAt(i) == 'A' && cadena2.charAt(i) != 'T' && cadena2.charAt(i) != '-') ||
+                    (cadena1.charAt(i) == 'C' && cadena2.charAt(i) != 'G' && cadena2.charAt(i) != '-') ||
+                    (cadena1.charAt(i) != 'A' && cadena1.charAt(i) != '-' && cadena2.charAt(i) == 'T') ||
+                    (cadena1.charAt(i) != 'C' && cadena1.charAt(i) != '-' && cadena2.charAt(i) == 'G')){
+                contador++;  
+            }
+        }
+        return contador;
+    }
+    
     public static void main(String[] args) {
         //test primer ejercicio.
         char[][] listaPalabras = {
@@ -38,6 +68,15 @@ public class EjerciciosNivel_02 {
         };
         EjerciciosNivel_02 e = new EjerciciosNivel_02();
         System.out.println(e.esEscaleraDePalabras(listaPalabras));
+        //test segundo ejercicio.
+        System.out.println(e.costeErroresADN("ACGT", "TGCA"));
+        System.out.println(e.costeErroresADN("A-C-G-T-ACGT", "TTGGCCAATGCA"));
+        System.out.println(e.costeErroresADN("AAAAAAAA", "TTTATTTT"));
+        System.out.println(e.costeErroresADN("GATTACA", "CTATT-T"));
+        System.out.println(e.costeErroresADN("CAT-TAG-ACT", "GTATATCCAAA"));
+        System.out.println(e.costeErroresADN("--------", "ACGTACGT"));
+        System.out.println(e.costeErroresADN("TAATAA", "ATTATT"));
+        System.out.println(e.costeErroresADN("GGGA-GAATATCTGGACT", "CCCTACTTA-AGACCGGT"));
     }
     
 }
