@@ -54,6 +54,13 @@ public class EjerciciosNivel_02 {
         return contador;
     }
     
+    /**
+     * 
+     * @param str1 palabra o frase en la que debemos buscar
+     * @param str2 string que debemos encontrar en la str1.
+     * @return 
+     */
+    
     public int strStr(String str1, String str2){
         //EN LA VIDA REAL SE SA .find PARA QUE TE DEVUELVA EL VALOR.
         int posicion = -1;
@@ -79,6 +86,33 @@ public class EjerciciosNivel_02 {
         }
         return posicion;
     }
+    
+    public String RPN (String[] numeros){
+        String[] pila = new String[100];
+        int posicion = 0;
+        for(int i=0; i < numeros.length; i++){
+            if(numeros[i] == "-" || numeros[i] == "+" || numeros[i] == "*" || numeros[i] == "/"){
+                posicion--;
+                if(numeros[i] == "-"){
+                    pila[posicion-1] = Integer.toString(Integer.valueOf(pila[posicion]) - Integer.valueOf(pila[posicion-1]));
+                }
+                if(numeros[i] == "+"){
+                    pila[posicion-1] = Integer.toString(Integer.valueOf(pila[posicion]) + Integer.valueOf(pila[posicion-1]));
+                }
+                if(numeros[i] == "*"){
+                    pila[posicion-1] = Integer.toString(Integer.valueOf(pila[posicion]) * Integer.valueOf(pila[posicion-1]));
+                }
+                if(numeros[i] == "/"){
+                    pila[posicion-1] = Integer.toString(Integer.valueOf(pila[posicion]) / Integer.valueOf(pila[posicion-1]));
+                }
+            }
+            else{
+                pila[posicion] = numeros[i];
+                posicion++;
+            }
+        }
+        return pila[0];
+    } 
     
     public static void main(String[] args) {
         //test primer ejercicio.
@@ -106,6 +140,9 @@ public class EjerciciosNivel_02 {
         System.out.println(e.strStr("HOLA_MUNDO", "MU")); //5
         System.out.println(e.strStr("HOLA_MUNDO", "ME")); //-1
         System.out.println(e.strStr("HOLA_MUNDO", "DO")); //8
+        //test cuarto ejercicio.
+        String[] numeros = {"3", "2", "+", "7", "*", "15", "21", "+", "-"};
+        System.out.println(e.RPN(numeros)); //1
     }
     
 }
