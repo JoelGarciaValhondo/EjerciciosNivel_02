@@ -142,7 +142,9 @@ public class EjerciciosNivel_02 {
         System.out.println(e.strStr("HOLA_MUNDO", "DO")); //8
         //test cuarto ejercicio.
         String[] numeros = {"3", "2", "+", "7", "*", "15", "21", "+", "-"};
-        System.out.println(e.RPN(numeros)); //1
+        String[] numeros2 = {"0", "1", "+", "7", "*", "15", "21", "+", "-"};
+        System.out.println(e.RPN(numeros));//1
+        System.out.println(e.RPN(numeros2));//29
     }
     
 }
